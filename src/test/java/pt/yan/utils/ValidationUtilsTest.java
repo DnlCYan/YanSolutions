@@ -19,25 +19,25 @@ class ValidationUtilsTest {
     @Test
     void defaultIfNull() {
         ClassA a = new ClassA();
-        String out = ValidationUtils.defaultIfNull(() -> {return a.getString();}, "testDefault");
+        String out = ValidationUtils.defaultIfNull(a::getString, "testDefault");
         assertEquals("testA", out);
     }
 
     @Test
     void defaultIfNull_Exception() {
         ClassA a = null;
-        String out = ValidationUtils.defaultIfNull(() -> {return a.getString();}, "testDefault");
+        String out = ValidationUtils.defaultIfNull(a::getString, "testDefault");
         assertEquals("testDefault", out);
     }
 
     @Test
     void defaultIfNull_Default() {
         ClassA a = new ClassA();
-        String out = ValidationUtils.defaultIfNull(() -> {return a.getNullString();}, "testDefault");
+        String out = ValidationUtils.defaultIfNull(a::getNullString, "testDefault");
         assertEquals("testDefault", out);
     }
 
-    class ClassA{
+    static class ClassA{
         public String getString(){ return "testA";}
         public String getNullString(){ return null;}
     }
