@@ -1,2 +1,2 @@
-# YanSolutions
+# YD Solutions
 Java project to implement utilities methods and functions to be used in different projects
