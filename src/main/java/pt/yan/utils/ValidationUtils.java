@@ -7,7 +7,7 @@ public class ValidationUtils <T> {
         try{
             T ret = (T)func.execute();
             return ret != null ? ret : defaultValue;
-        }catch(NullPointerException e){
+        }catch(NullPointerException | IndexOutOfBoundsException e){
             return defaultValue;
         }
     }
